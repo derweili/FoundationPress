@@ -57,7 +57,7 @@ matrix:
 
 
 before_script:
-  - if [ $TEST == PHP ]; then
+  - if [ $TEST == "PHP" ]; then
     composer install --dev
     fi
 script:
