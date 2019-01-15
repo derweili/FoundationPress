@@ -1,34 +1,44 @@
-language: php
-
 matrix:
   include:
     - name: "PHP 5.6 Compatibility Test"
+      language: php
       php: "5.6"
       env: TEST_VERSION=5.6
     - name: "PHP7.0 Compatibility Test"
+      language: php
       php: "7.0"
       env: TEST_VERSION=7.0
     - name: "PHP 7.1 Compatibility Test"
+      language: php
       php: "7.1"
       env: TEST_VERSION=7.1
     - name: "PHP 7.2 Compatibility Test"
+      language: php
       php: "7.2"
       env: TEST_VERSION=7.2
     - name: "PHP 7.3 Compatibility Test"
+      language: php
       php: "7.3"
       env: TEST_VERSION=7.3
   allow_failures:
     - name: "PHP 5.3 Compatibility Test"
+      language: php
       php: "5.3"
       env: TEST_VERSION=5.3
     - name: "PHP 5.4 Compatibility Test"
+      language: php
       php: "5.4"
       env: TEST_VERSION=5.4
     - name: "PHP 5.5 Compatibility Test"
+      language: php
       php: "5.5"
       env: TEST_VERSION=5.5
 
 before_script:
-  - composer install --dev
+  - if [ $TEST_VERSION ]; then
+    composer install --dev
+    fi
 script:
-  - vendor/bin/phpcs -p --ignore=./dist/*,./node_modules/*,./src/*,./vendor/* ./ --standard=PHPCompatibility --runtime-set testVersion $TEST_VERSION
+  - if [ $TEST_VERSION ]; then
+    vendor/bin/phpcs -p --ignore=./dist/*,./node_modules/*,./src/*,./vendor/* ./ --standard=PHPCompatibility --runtime-set testVersion $TEST_VERSION
+    fi
