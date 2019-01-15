@@ -31,4 +31,4 @@ matrix:
 before_script:
   - composer install --dev
 script:
-  - vendor/bin/phpcs -p src/ --standard=PHPCompatibility --runtime-set testVersion $TEST_VERSION
+  - vendor/bin/phpcs -p --ignore=./dist/*,./node_modules/*,./src/*,./vendor/* ./ --standard=PHPCompatibility --runtime-set testVersion $TEST_VERSION
