@@ -55,6 +55,7 @@ matrix:
         - TEST=PHP
         - PHP_VERSION=5.5
 
+
 before_script:
   - if [ $TEST == PHP ]; then
     composer install --dev
