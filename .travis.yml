@@ -26,13 +26,13 @@ matrix:
         - PHP_VERSION=7.2
     - name: "PHP 7.3 Compatibility Test"
       language: php
-      php: "7.3",
+      php: "7.3"
       env:
         - TEST=PHP
         - PHP_VERSION=7.3
     - name: "BUILD Process"
       language: node_js
-      node_js: "6.11",
+      node_js: "6.11"
       env:
         - TEST=NODE
   allow_failures:
