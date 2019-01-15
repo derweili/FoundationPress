@@ -68,6 +68,9 @@ script:
     fi
   - |
     if [ $TEST_VERSION == "NODE" ]; then
-    npm install
-    npm run build
+      npm install
+    fi
+  - |
+    if [ $TEST_VERSION == "NODE" ]; then
+      npm run build
     fi
